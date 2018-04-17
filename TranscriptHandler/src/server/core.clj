@@ -1,11 +1,3 @@
-;---
-; Excerpted from "Seven Concurrency Models in Seven Weeks",
-; published by The Pragmatic Bookshelf.
-; Copyrights apply to this code. It may not be used to create training material, 
-; courses, books, articles, and the like. Contact us if you are in doubt.
-; We make no guarantees that this code is fit for any purpose. 
-; Visit http://www.pragmaticprogrammer.com/titles/pb7con for more book information.
-;---
 (ns server.core
   (:require [server.sentences   :refer [strings->sentences]]
             [server.charset     :refer [wrap-charset]]
@@ -15,6 +7,7 @@
             [ring.adapter.jetty :refer [run-jetty]]
             [clj-http.client    :as client]))
 
+; this serves as a data queue
 (def snippets (repeatedly promise))
 
 (def translator "http://localhost:3001/translate")
